@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 
 const mongoose = require("mongoose");
-const dotenv = require("dotenv");
+// const dotenv = require("dotenv");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const userRoute = require("./routes/users");
@@ -10,11 +10,11 @@ const authRoute = require("./routes/auth");
 const conversationRoute = require("./routes/conversations");
 const messageRoute = require("./routes/messages");
 
-dotenv.config();
+// dotenv.config();
 
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
-    console.log("Connected to the Mongodb Database")
-});
+// mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
+//     console.log("Connected to the Mongodb Database")
+// });
 
 // middleware
 app.use(express.json());
@@ -26,6 +26,8 @@ app.use("/api/auth", authRoute);
 app.use("/api/conversations", conversationRoute);
 app.use("/api/messages", messageRoute);
 
-app.listen(8800, () => {
-    console.log("Backend server is running!");
-})
+// app.listen(8800, () => {
+//     console.log("Backend server is running!");
+// })
+
+module.exports = app;
